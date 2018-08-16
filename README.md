@@ -10,7 +10,7 @@ Animate content elements on scroll using [AOS](https://github.com/michalsnik/aos
 1. Install via composer or use the [Contao Manager](https://docs.contao.org/books/manager/de/)
 
 ```
-composer require AustinMarshall/contao-aos
+composer require onemarshall/contao-aos
 ```
 
 2. Open the install tool and do a database update.
