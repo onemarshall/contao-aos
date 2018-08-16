@@ -1,5 +1,5 @@
 {
-  "name": "AustinMarshall/contao-aos",
+  "name": "onemarshall/contao-aos",
   "description": "Animate content elements on scroll",
   "keywords": ["contao", "animate", "scroll", "viewport"],
   "type": "contao-bundle",
@@ -10,7 +10,7 @@
   },
   "autoload": {
     "psr-4": {
-      "AustinMarshall\\AosBundle\\": "src/"
+      "onemarshall\\AosBundle\\": "src/"
     },
     "classmap": [
       "src/Resources/contao/"
@@ -23,6 +23,6 @@
     ]
   },
   "extra": {
-    "contao-manager-plugin": "AustinMarshall\\AosBundle\\ContaoManager\\Plugin"
+    "contao-manager-plugin": "onemarshall\\AosBundle\\ContaoManager\\Plugin"
   }
 }

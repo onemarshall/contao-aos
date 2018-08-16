@@ -1,7 +1,7 @@
 <?php
 
 
-namespace AustinMarshall\AosBundle\ContaoManager;
+namespace onemarshall\AosBundle\ContaoManager;
 
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
@@ -11,7 +11,7 @@ use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 /**
  * Plugin for the Contao Manager.
  *
- * @author Glumanda <https://github.com/AustinMarshall>
+ * @author Glumanda <https://github.com/onemarshall>
  */
 class Plugin implements BundlePluginInterface
 {
@@ -21,7 +21,7 @@ class Plugin implements BundlePluginInterface
     public function getBundles(ParserInterface $parser)
     {
         return [
-            BundleConfig::create('AustinMarshall\AosBundle\AosBundle')
+            BundleConfig::create('onemarshall\AosBundle\AosBundle')
                 ->setLoadAfter([ContaoCoreBundle::class])
         ];
     }

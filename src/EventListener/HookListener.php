@@ -1,11 +1,11 @@
 <?php
 
-namespace AustinMarshall\AosBundle\EventListener;
+namespace onemarshall\AosBundle\EventListener;
 
 /**
  * Class HookListener
  *
- * @package AustinMarshall\AosBundle\EventListener
+ * @package onemarshall\AosBundle\EventListener
  */
 class HookListener
 {

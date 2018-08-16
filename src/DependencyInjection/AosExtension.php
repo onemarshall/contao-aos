@@ -1,6 +1,6 @@
 <?php
 
-namespace AustinMarshall\AosBundle\DependencyInjection;
+namespace onemarshall\AosBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
