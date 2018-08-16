@@ -1,0 +1,11 @@
+<?php $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/aos/dist/aos.min.js'; ?>
+<?php $GLOBALS['TL_CSS'][] = 'bundles/aos/dist/aos.min.css'; ?>
+
+<script>
+    AOS.init({
+        offset: 120,
+        duration: 400,
+        easing: 'ease',
+        delay: 0
+    });
+</script>

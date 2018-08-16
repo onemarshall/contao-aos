@@ -1,0 +1,28 @@
+{
+  "name": "AustinMarshall/contao-aos",
+  "description": "Animate content elements on scroll",
+  "keywords": ["contao", "animate", "scroll", "viewport"],
+  "type": "contao-bundle",
+  "license": "MIT",
+  "require": {
+    "php": ">=7.0",
+    "contao/core-bundle": "^4.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "AustinMarshall\\AosBundle\\": "src/"
+    },
+    "classmap": [
+      "src/Resources/contao/"
+    ],
+    "exclude-from-classmap": [
+      "src/Resources/contao/config/",
+      "src/Resources/contao/dca/",
+      "src/Resources/contao/languages/",
+      "src/Resources/contao/templates/"
+    ]
+  },
+  "extra": {
+    "contao-manager-plugin": "AustinMarshall\\AosBundle\\ContaoManager\\Plugin"
+  }
+}

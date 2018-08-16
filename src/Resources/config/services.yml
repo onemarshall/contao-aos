@@ -1,0 +1,3 @@
+services:
+  aos.listener.hooks:
+    class: AustinMarshall\AosBundle\EventListener\HookListener
