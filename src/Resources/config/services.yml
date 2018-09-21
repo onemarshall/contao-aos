@@ -1,3 +1,4 @@
 services:
   aos.listener.hooks:
     class: onemarshall\AosBundle\EventListener\HookListener
+    public: true
