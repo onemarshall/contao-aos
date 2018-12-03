@@ -38,15 +38,15 @@ class HookListener
         );
 
         $aos = array_filter($aos, function ($value) { return $value !== ''; });
-        $div = '<div data-aos="' . array_shift($aos) . '"';
+        $div = ' data-aos="' . array_shift($aos) . '"';
 
         foreach ($aos as $attr => $value) {
             $value = ($value === '1') ? 'true' : $value;
             $div .= ' data-aos-' . $attr . '="' . $value . '"';
         }
 
-        $div .= '>' . $strBuffer;
-        $div .= '</div>';
+        // Inject AOS
+        $div = preg_replace('/(<[a-z0-9]+)/i', '$1' . $div, $strBuffer);
 
         return $div;
 
