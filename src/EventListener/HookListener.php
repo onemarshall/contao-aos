@@ -2,6 +2,8 @@
 
 namespace onemarshall\AosBundle\EventListener;
 
+use Contao\CoreBundle\Routing\ScopeMatcher;
+use Symfony\Component\HttpFoundation\RequestStack;
 /**
  * Class HookListener
  *
@@ -9,6 +11,15 @@ namespace onemarshall\AosBundle\EventListener;
  */
 class HookListener
 {
+
+    private $requestStack;
+    private $scopeMatcher;
+
+    public function __construct(RequestStack $requestStack, ScopeMatcher $scopeMatcher)
+    {
+        $this->requestStack = $requestStack;
+        $this->scopeMatcher = $scopeMatcher;
+    }
 
     /**
      * Inject data-aos attributes
@@ -20,7 +31,7 @@ class HookListener
     public function getContentElement($objElement, $strBuffer)
     {
 
-        if (TL_MODE == 'BE' || !$objElement->aosAnimation) {
+        if ($this->isBackend() || !$objElement->aosAnimation) {
 
             return $strBuffer;
 
@@ -50,6 +61,11 @@ class HookListener
 
         return $div;
 
+    }
+
+    public function isBackend()
+    {
+        return $this->scopeMatcher->isBackendRequest($this->requestStack->getCurrentRequest());
     }
 
 }
