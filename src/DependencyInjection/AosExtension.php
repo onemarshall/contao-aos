@@ -18,7 +18,6 @@ class AosExtension extends Extension
             new FileLocator(__DIR__.'/../../config')
         );
 
-        $loader->load('parameters.yml');
         $loader->load('services.yml');
 
     }
