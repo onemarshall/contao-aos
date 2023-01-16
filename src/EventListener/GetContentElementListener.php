@@ -22,12 +22,11 @@ class GetContentElementListener
 
     public function __invoke(ContentModel $contentModel, string $buffer, $element): string
     {
-
         if (!$contentModel->aosAnimation || $this->isBackend()) {
             return $buffer;
         }
 
-        $aos = array(
+        $aos = [
             '' => $contentModel->aosAnimation,
             'easing' => $contentModel->aosEasing,
             'duration' => $contentModel->aosDuration,
@@ -36,9 +35,11 @@ class GetContentElementListener
             'anchor-placement' => $contentModel->aosAnchorPlacement,
             'offset' => $contentModel->aosOffset,
             'once' => $contentModel->aosOnce
-        );
+        ];
 
-        $aos = array_filter($aos, static function ($value) { return $value !== ''; });
+        $aos = array_filter($aos, static function ($value) {
+            return $value !== '';
+        });
         $div = ' data-aos="' . array_shift($aos) . '"';
 
         foreach ($aos as $attr => $value) {
@@ -48,7 +49,6 @@ class GetContentElementListener
 
         // Inject AOS
         return preg_replace('/(<[a-z0-9]+)/i', '$1' . $div, $buffer);
-
     }
 
     public function isBackend(): bool
