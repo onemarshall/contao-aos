@@ -23,7 +23,7 @@ class GetContentElementListener
     public function __invoke(ContentModel $contentModel, string $buffer, $element): string
     {
 
-        if ($this->isBackend() || !$contentModel->aosAnimation) {
+        if (!$contentModel->aosAnimation || $this->isBackend()) {
             return $buffer;
         }
 
@@ -38,7 +38,7 @@ class GetContentElementListener
             'once' => $contentModel->aosOnce
         );
 
-        $aos = array_filter($aos, function ($value) { return $value !== ''; });
+        $aos = array_filter($aos, static function ($value) { return $value !== ''; });
         $div = ' data-aos="' . array_shift($aos) . '"';
 
         foreach ($aos as $attr => $value) {
@@ -47,9 +47,7 @@ class GetContentElementListener
         }
 
         // Inject AOS
-        $div = preg_replace('/(<[a-z0-9]+)/i', '$1' . $div, $buffer);
-
-        return $div;
+        return preg_replace('/(<[a-z0-9]+)/i', '$1' . $div, $buffer);
 
     }
 
