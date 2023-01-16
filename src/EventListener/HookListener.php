@@ -2,13 +2,16 @@
 
 namespace onemarshall\AosBundle\EventListener;
 
+use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
 use Contao\CoreBundle\Routing\ScopeMatcher;
 use Symfony\Component\HttpFoundation\RequestStack;
+
 /**
  * Class HookListener
  *
  * @package onemarshall\AosBundle\EventListener
  */
+
 class HookListener
 {
 
@@ -28,6 +31,7 @@ class HookListener
      * @param $strBuffer
      * @return string
      */
+    #[AsHook('getContentElement')]
     public function getContentElement($objElement, $strBuffer)
     {
 
