@@ -7,7 +7,7 @@ use Contao\CoreBundle\Routing\ScopeMatcher;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 #[AsHook('getContentElement')]
-class HookListener
+class GetContentElementListener
 {
 
     private RequestStack $requestStack;

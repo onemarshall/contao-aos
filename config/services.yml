@@ -4,7 +4,7 @@ services:
     autoconfigure: true
     public: true
 
-  onemarshall\AosBundle\EventListener\HookListener:
+  onemarshall\AosBundle\EventListener\GetContentElementListener:
     arguments:
       - "@request_stack"
       - "@contao.routing.scope_matcher"
