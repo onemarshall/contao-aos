@@ -6,17 +6,12 @@ use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
 use Contao\CoreBundle\Routing\ScopeMatcher;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-/**
- * Class HookListener
- *
- * @package onemarshall\AosBundle\EventListener
- */
-
+#[AsHook('getContentElement')]
 class HookListener
 {
 
-    private $requestStack;
-    private $scopeMatcher;
+    private RequestStack $requestStack;
+    private ScopeMatcher $scopeMatcher;
 
     public function __construct(RequestStack $requestStack, ScopeMatcher $scopeMatcher)
     {
@@ -24,32 +19,22 @@ class HookListener
         $this->scopeMatcher = $scopeMatcher;
     }
 
-    /**
-     * Inject data-aos attributes
-     *
-     * @param $objElement
-     * @param $strBuffer
-     * @return string
-     */
-    #[AsHook('getContentElement')]
-    public function getContentElement($objElement, $strBuffer)
+    public function __invoke(ContentModel $contentModel, string $buffer, $element): string
     {
 
-        if ($this->isBackend() || !$objElement->aosAnimation) {
-
-            return $strBuffer;
-
+        if ($this->isBackend() || !$contentModel->aosAnimation) {
+            return $buffer;
         }
 
         $aos = array(
-            '' => $objElement->aosAnimation,
-            'easing' => $objElement->aosEasing,
-            'duration' => $objElement->aosDuration,
-            'delay' => $objElement->aosDelay,
-            'anchor' => $objElement->aosAnchor,
-            'anchor-placement' => $objElement->aosAnchorPlacement,
-            'offset' => $objElement->aosOffset,
-            'once' => $objElement->aosOnce
+            '' => $contentModel->aosAnimation,
+            'easing' => $contentModel->aosEasing,
+            'duration' => $contentModel->aosDuration,
+            'delay' => $contentModel->aosDelay,
+            'anchor' => $contentModel->aosAnchor,
+            'anchor-placement' => $contentModel->aosAnchorPlacement,
+            'offset' => $contentModel->aosOffset,
+            'once' => $contentModel->aosOnce
         );
 
         $aos = array_filter($aos, function ($value) { return $value !== ''; });
@@ -61,13 +46,13 @@ class HookListener
         }
 
         // Inject AOS
-        $div = preg_replace('/(<[a-z0-9]+)/i', '$1' . $div, $strBuffer);
+        $div = preg_replace('/(<[a-z0-9]+)/i', '$1' . $div, $string);
 
         return $div;
 
     }
 
-    public function isBackend()
+    public function isBackend(): bool
     {
         return $this->scopeMatcher->isBackendRequest($this->requestStack->getCurrentRequest());
     }

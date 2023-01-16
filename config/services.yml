@@ -1,7 +1,10 @@
 services:
-  aos.listener.hooks:
-    class: onemarshall\AosBundle\EventListener\HookListener
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  onemarshall\AosBundle\EventListener\HookListener:
     arguments:
       - "@request_stack"
       - "@contao.routing.scope_matcher"
-    public: true
