@@ -2,6 +2,7 @@
 
 namespace onemarshall\AosBundle\EventListener;
 
+use Contao\ContentModel;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
 use Contao\CoreBundle\Routing\ScopeMatcher;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -46,7 +47,7 @@ class GetContentElementListener
         }
 
         // Inject AOS
-        $div = preg_replace('/(<[a-z0-9]+)/i', '$1' . $div, $string);
+        $div = preg_replace('/(<[a-z0-9]+)/i', '$1' . $div, $buffer);
 
         return $div;
 
