@@ -4,20 +4,17 @@ use onemarshall\AosBundle\EventListener\DataContainer\ContentFieldsListener;
 
 foreach ($GLOBALS['TL_DCA']['tl_content']['palettes'] as $key => $palette) {
     if (is_string($key)) {
-        $GLOBALS['TL_DCA']['tl_content']['palettes'][$key] = str_replace(
-            '{invisible_legend:hide}',
-            '{aos_legend:hide},
-                    aosAnimation,
-                    aosEasing,
-                    aosDuration,
-                    aosDelay,
-                    aosAnchor,
-                    aosAnchorPlacement,
-                    aosOffset,
-                    aosOnce;
-                    {invisible_legend:hide}',
-            $palette
-        );
+        PaletteManipulator::create()
+            ->addLegend('aos_legend', 'invisible_legend', PaletteManipulator::POSITION_BEFORE)
+            ->addField('aosAnimation', 'aos_legend', PaletteManipulator::POSITION_APPEND)
+            ->addField('aosEasing', 'aos_legend', PaletteManipulator::POSITION_APPEND)
+            ->addField('aosDuration', 'aos_legend', PaletteManipulator::POSITION_APPEND)
+            ->addField('aosDelay', 'aos_legend', PaletteManipulator::POSITION_APPEND)
+            ->addField('aosAnchor', 'aos_legend', PaletteManipulator::POSITION_APPEND)
+            ->addField('aosAnchorPlacement', 'aos_legend', PaletteManipulator::POSITION_APPEND)
+            ->addField('aosOffset', 'aos_legend', PaletteManipulator::POSITION_APPEND)
+            ->addField('aosOnce', 'aos_legend', PaletteManipulator::POSITION_APPEND)
+            ->applyToPalette($key, 'tl_content');
     }
 }
 
