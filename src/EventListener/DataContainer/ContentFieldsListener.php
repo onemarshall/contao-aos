@@ -5,10 +5,10 @@ namespace onemarshall\AosBundle\EventListener\DataContainer;
 class ContentFieldsListener
 {
 
-    public function getAnimations()
+    public function getAnimations(): array
     {
-        return array(
-            'fade' => array(
+        return [
+            'fade' => [
                 'fade',
                 'fade-up',
                 'fade-down',
@@ -18,23 +18,23 @@ class ContentFieldsListener
                 'fade-up-left',
                 'fade-down-right',
                 'fade-down-left'
-            ),
+            ],
 
-            'flip' => array(
+            'flip' => [
                 'flip-up',
                 'flip-down',
                 'flip-left',
                 'flip-right'
-            ),
+            ],
 
-            'slide' => array(
+            'slide' => [
                 'slide-up',
                 'slide-down',
                 'slide-left',
                 'slide-right'
-            ),
+            ],
 
-            'zoom' => array(
+            'zoom' => [
                 'zoom-in',
                 'zoom-in-up',
                 'zoom-in-down',
@@ -45,13 +45,13 @@ class ContentFieldsListener
                 'zoom-out-down',
                 'zoom-out-left',
                 'zoom-out-right'
-            )
-        );
+            ]
+        ];
     }
 
-    public function getEasings()
+    public function getEasings(): array
     {
-        return array(
+        return [
             'linear',
             'ease',
             'ease-in',
@@ -72,30 +72,30 @@ class ContentFieldsListener
             'ease-in-out-quad',
             'ease-in-out-cubic',
             'ease-in-out-quart'
-        );
+        ];
     }
 
-    public function getAnchorPlacements()
+    public function getAnchorPlacements(): array
     {
-        return array(
-            'top' => array(
+        return [
+            'top' => [
                 'top-bottom',
                 'top-center',
                 'top-top'
-            ),
+            ],
 
-            'center' => array(
+            'center' => [
                 'center-bottom',
                 'center-center',
                 'center-top'
-            ),
+            ],
 
-            'bottom' => array(
+            'bottom' => [
                 'bottom-bottom',
                 'bottom-center',
                 'bottom-top'
-            )
-        );
+            ]
+        ];
     }
 
 }
