@@ -1,7 +1,12 @@
 {
   "name": "onemarshall/contao-aos",
   "description": "Animate content elements on scroll",
-  "keywords": ["contao", "animate", "scroll", "viewport"],
+  "keywords": [
+    "contao",
+    "animate",
+    "scroll",
+    "viewport"
+  ],
   "type": "contao-bundle",
   "license": "MIT",
   "require": {
@@ -17,7 +22,6 @@
     ],
     "exclude-from-classmap": [
       "contao/config/",
-      "contao/dca/",
       "contao/languages/",
       "contao/templates/",
       "contao/themes/"
