@@ -38,12 +38,12 @@ class GetContentElementListener
         ];
 
         $aos = array_filter($aos, static function ($value) {
-            return $value !== '';
+            return '' !== $value;
         });
         $div = ' data-aos="' . array_shift($aos) . '"';
 
         foreach ($aos as $attr => $value) {
-            $value = ($value === '1') ? 'true' : $value;
+            $value = ('1' === $value) ? 'true' : $value;
             $div .= ' data-aos-' . $attr . '="' . $value . '"';
         }
 
