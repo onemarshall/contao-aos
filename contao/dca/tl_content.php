@@ -30,7 +30,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['aosAnimation'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['aosAnimation'],
     'exclude' => true,
     'inputType' => 'select',
-    'options_callback' => [[ContentFieldsListener::class, 'getAnimations']],
+    'options_callback' => [ContentFieldsListener::class, 'getAnimations'],
     'eval' => ['tl_class' => 'w50', 'includeBlankOption' => true],
     'sql' => "varchar(32) NOT NULL default ''"
 ];
@@ -56,7 +56,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['aosEasing'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['aosEasing'],
     'exclude' => true,
     'inputType' => 'select',
-    'options_callback' => [[ContentFieldsListener::class, 'getEasings']],
+    'options_callback' => [ContentFieldsListener::class, 'getEasings'],
     'eval' => ['tl_class' => 'w50', 'includeBlankOption' => true],
     'sql' => "varchar(32) NOT NULL default ''"
 ];
@@ -81,7 +81,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['aosAnchorPlacement'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['aosAnchorPlacement'],
     'exclude' => true,
     'inputType' => 'select',
-    'options_callback' => [[ContentFieldsListener::class, 'getAnchorPlacements']],
+    'options_callback' => [ContentFieldsListener::class, 'getAnchorPlacements'],
     'eval' => ['tl_class' => 'w50', 'includeBlankOption' => true],
     'sql' => "varchar(32) NOT NULL default ''"
 ];
