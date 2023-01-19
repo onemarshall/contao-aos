@@ -13,6 +13,12 @@
     "php": ">=8.0",
     "contao/core-bundle": "^4.13 || ^5.0"
   },
+  "require-dev": {
+    "contao/manager-plugin": "^2.0"
+  },
+  "conflict": {
+    "contao/manager-plugin": "<2.0 || >=3.0"
+  },
   "autoload": {
     "psr-4": {
       "onemarshall\\AosBundle\\": "src/"
@@ -22,6 +28,7 @@
     ],
     "exclude-from-classmap": [
       "contao/config/",
+      "contao/dca/",
       "contao/languages/",
       "contao/templates/",
       "contao/themes/"
