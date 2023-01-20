@@ -3,8 +3,6 @@
 use Contao\CoreBundle\DataContainer\PaletteManipulator;
 use onemarshall\AosBundle\EventListener\DataContainer\ContentFieldsListener;
 
-use function is_string;
-
 foreach ($GLOBALS['TL_DCA']['tl_content']['palettes'] as $key => $palette) {
 
     if('__selector__'===$key) {
